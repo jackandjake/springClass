@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.oracle.oBootMybatis03.domain.Member;
 import com.oracle.oBootMybatis03.model.Dept;
@@ -237,6 +238,7 @@ public class EmpController {
 	public String interCeptor(String id, Model model) {
 		System.out.println("interCeptor Test Start");
 		System.out.println("interCeptor id->"+id);
+		//존재하면 1 , 존재안하면 0 
 		int memCnt = es.memCount(id);
 		
 		System.out.println("memCnt->"+ memCnt);
@@ -246,7 +248,7 @@ public class EmpController {
 		
 		model.addAttribute("id", id);
 		model.addAttribute("memCnt", memCnt);
-		System.out.println("interCeptor Test End");
+		System.out.println("interCeptor Test End"); //모델에만 담아두면 interceptor가 처리 
 		return "interCeptor"; //User 존재하면 User 이용 조회 Page // 공갈페이지임. 아무역할안하고 형식상으로 해둠. 
 	}
 	
@@ -285,7 +287,25 @@ public class EmpController {
 		return "listEmpAjax";
 	}
 	
+	// Ajax Sample1
+	@RequestMapping(value = "getDeptName", produces = "application/text;charset=UTF-8") 
+	@ResponseBody
+	public String getDeptName(int deptno, Model model) {
+		System.out.println("deptno->"+deptno);
+		return es.deptName(deptno); // String .. 부서명 돌려줌
+	}
 	
+	// Ajax  List Test
+			@RequestMapping(value="listEmpAjax2")
+			public String listEmpAjax2(Model model) {
+				EmpDept empDept = null;
+				System.out.println("listEmpAjax2 Start");
+				List<EmpDept> listEmp = es.listEmp(empDept);
+				model.addAttribute("result","kkk");
+				model.addAttribute("listEmp",listEmp);
+				return "listEmpAjax2";
+			}
+			
 	
 	
 	

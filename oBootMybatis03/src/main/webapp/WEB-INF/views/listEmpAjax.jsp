@@ -22,9 +22,47 @@
 	var str2="";
 	
 	/* EmpController */
+	function getDeptName(Vdeptno) {
+		console.log(Vdeptno);
+		// alert("Vdeptno->"+Vdeptno);
+		
+		$.ajax(
+			{
+					url:"<%=context%>/getDeptName",
+					data:{deptno : Vdeptno},
+					dataType:'text',			// 리턴에 관한 것. 객체로 받으면 json
+					success:function(data){     // 리턴에 관한 것.
+						// alert("success ajax Data"+data);
+						$('#deptName').val(data);         /*  input  Tag / #은 id .은 class를 말함  */
+						$('#msg').html(data);			  /* span id Tag */ 
+					}
+			}		
+		);
+	}
+	
+	/* RestController TEST */ 
+	function getDept(Vdeptno){
+		alert("Vdeptno->"+Vdeptno);
+		$.ajax({
+			url:"<%=context%>/sample/sendVO2",
+			data:{deptno : Vdeptno},
+			dataType: 'json',  // 객체로 받는 것. 
+			success:function(data){
+				/* alert(".ajax getDept Data"+data); */
+				str = data.firstName + " " + data.lastName + " " + data.mno;  // 넘어온 객체릐 필드명을 각각 조립 가능! 
+				alert(".ajax getDept str"+str);
+				$('RestDept').val(str);		/* Input Tag */
+			}
+		 }		
+		);
+	}
 
-
-
+	
+	
+	
+	
+	
+	
  </script>
 </head>
 <body>
@@ -35,7 +73,7 @@
 		<tr><td>${empDept.empno }</td><td>${empDept.ename }</td>
 			<td>${empDept.job }</td>
 			<td>${empDept.deptno} 
-			    <input type="button" id="btn_idCheck" value="부서명" onmouseover="getDeptName(${empDept.deptno })">
+			    <input type="button" id="btn_idCheck" value="부서명" onmouseover="getDeptName(${empDept.deptno})">
 			</td>
 			<td>${empDept.loc }</td>
 		</tr>

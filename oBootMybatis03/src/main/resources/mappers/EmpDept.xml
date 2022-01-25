@@ -4,10 +4,16 @@
 
 <mapper	namespace="com.oracle.oBootMybatis03.dao.EmpDao">
     <select id="TKlistEmpDept" resultType="EmpDept">
- 	select e.empno, e.ename, e.job, d.deptno, d.loc
-	from emp e, dept d
-    where e.deptno = d.deptno
-    order by empno
+ 			select e.empno, e.ename, e.job, d.deptno, d.loc
+			from emp e, dept d
+   			where e.deptno = d.deptno
+    		order by empno
     </select>
     
+    <select id="TKdeptName" parameterType="int" resultType="java.lang.String">
+    	    select dname from dept where deptno= #{deptNo}   
+    
+    
+    
+    </select>
 </mapper>

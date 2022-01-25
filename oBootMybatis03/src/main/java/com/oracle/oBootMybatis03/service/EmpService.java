@@ -24,5 +24,6 @@ public interface EmpService {
 	int             memCount(String id);
 	List<Member3>   listMem(Member3 member3);
 	List<EmpDept>   listEmp(EmpDept empDept);
+	String          deptName(int deptno);
 	
 }

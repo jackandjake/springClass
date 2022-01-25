@@ -1,6 +1,6 @@
 # http port set
 server:
-  port: 8189 
+  port: 8190 
   
 spring:
   # File Size

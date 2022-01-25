@@ -15,4 +15,7 @@ public interface EmpDao {
 	int 			delete(int empno);
 	List<EmpDept>	listEmpDept();
 	List<EmpDept>   listEmp(EmpDept empDept);
+	String          deptName(int deptno);
 }
+
+//이런게 오버로딩이다. 같이 떠있다. 같은 인터페이스에. 10, 17줄. 
