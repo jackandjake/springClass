@@ -23,8 +23,6 @@
 	var contextPath='${pageContext.request.contextPath}';
 	var i=2;
 
-	
-
 	/* RestController TEST */
 	/* http://jsonviewer.stack.hu/ */
 
@@ -87,7 +85,7 @@
 	    	 	dataType:'text',
 	    	 	success:function(data){
 	    	 		alert(".ajax getDeptDelete data->"+data);
-	    	 		if (data == '1') {
+	    	 		if (data == '1') {	    	 			
 	    	 			// 성공하면 아래라인 수행
 	    	 			$('#empDept'+Vindex).remove();		/* Delete Tag */
 	    	 		}
@@ -98,10 +96,10 @@
 	
 	
 	}
-	
-	
+		
 </script>
 </head>
+
 <body>
 <h2>회원 정보</h2>
 <table>
@@ -113,7 +111,7 @@
 		<td>${empDept.job }</td><td>${empDept.deptno } 
 		    <input type="button" id="btn_idCheck2" value="부서Row Delete" onclick="getDeptDelete(${status.index})">
 		</td>
-		<td>${empDept.loc }</td>
+		<td>${empDept.loc}</td>
 	</tr>
 </c:forEach>
 </table>

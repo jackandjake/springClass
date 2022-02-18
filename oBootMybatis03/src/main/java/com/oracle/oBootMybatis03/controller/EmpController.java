@@ -140,7 +140,7 @@ public class EmpController {
 //		return "redirect:list";
 //	}
 	
-	@GetMapping(value="listEmpDept")
+	@GetMapping(value="listEmpDept") // 1
 	public String listEmpDept(Model model) {
 		EmpDept empDept = null;
 		System.out.println("EmpController listEmpDept Start...");
@@ -295,16 +295,16 @@ public class EmpController {
 		return es.deptName(deptno); // String .. 부서명 돌려줌
 	}
 	
-	// Ajax  List Test
-			@RequestMapping(value="listEmpAjax2")
-			public String listEmpAjax2(Model model) {
-				EmpDept empDept = null;
-				System.out.println("listEmpAjax2 Start");
-				List<EmpDept> listEmp = es.listEmp(empDept);
-				model.addAttribute("result","kkk");
-				model.addAttribute("listEmp",listEmp);
-				return "listEmpAjax2";
-			}
+	// Ajax  List Test2 
+	@RequestMapping(value="listEmpAjax2")
+	public String listEmpAjax2(Model model) {
+		EmpDept empDept = null;
+		System.out.println("listEmpAjax2 Start");
+		List<EmpDept> listEmp = es.listEmp(empDept);
+		model.addAttribute("result","kkk");
+		model.addAttribute("listEmp",listEmp);
+		return "listEmpAjax2";
+			} 
 			
 	
 	

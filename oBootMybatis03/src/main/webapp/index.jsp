@@ -8,7 +8,7 @@
 </head>
 <body>
 <%
-	response.sendRedirect("list");
+	//response.sendRedirect("list");
 	// response.sendRedirect("listEmpDept");
 	// response.sendRedirect("writeDeptIn");       // Procedure VO     Test
 	// response.sendRedirect("writeDeptCursor");   // Procedure Cursor    Test  
@@ -20,7 +20,7 @@
 	// RestController Test (VO)  helloText hello sendVO3
 	// response.sendRedirect("listEmpAjax");       // Ajax -->  getDeptName listEmpAjax
 	// response.sendRedirect("listEmpAjax2");       // Ajax -->  getDeptName listEmpAjax
-	// response.sendRedirect("chat");
+	response.sendRedirect("chat");
 %> 
 </body>
 </html>

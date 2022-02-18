@@ -28,6 +28,7 @@ public class EmpDaoImpl implements EmpDao {
 		}
 		return tot;
 	}
+	
 	//Dao는 반드시 try catch 걸어줄것
 	@Override     
 	public List<Emp> listEmp(Emp emp) {

@@ -13,7 +13,7 @@ public interface EmpDao {
 	List<Emp>   	listManager();
 	int         	insert(Emp emp);
 	int 			delete(int empno);
-	List<EmpDept>	listEmpDept();
+	List<EmpDept>	listEmpDept(); // 1
 	List<EmpDept>   listEmp(EmpDept empDept);
 	String          deptName(int deptno);
 }

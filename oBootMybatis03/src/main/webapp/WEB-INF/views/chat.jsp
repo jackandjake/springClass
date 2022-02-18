@@ -59,8 +59,8 @@
         // WebSocket 프로토콜을 사용하여 통신하기 위해서는 WebSocket객체를 생성. 
         // 객체는 자동으로 서버로의 연결
  		ws = new WebSocket(wsUri);
-		wsEvt(); // 이벤트에 태움 
-	}
+		wsEvt();
+	}  
 		
 	function wsEvt() {
 		console.log("wsEvt  start... ");
@@ -146,44 +146,45 @@
 		});
 	}
 
-	function chatName(){ // 김준수가 들어감(입력한)
+	function chatName(){
+		// 1. 김준수
 		var userName = $("#userName").val();
-		console.log("chatName userName: " + userName);
-		if(userName == null || userName.trim() == "") {
+		console.log("chatName  userName: " + userName);
+		if(userName == null || userName.trim() == ""){
 			alert("사용자 이름을 입력해주세요.");
 			$("#userName").focus();
 		}else{
 			wsOpen();
-			$("#meName").append('나의이름:'+userName);
+			$("#meName").append('나의이름:'+userName); 
 			$("#yourName").hide();
 			$("#yourMsg").show();
-			$("#yourNameDel").show();			
-		};
-			
+			$("#yourNameDel").show();
+		}
 	}
+	
     // 삭제시 처리 
 	function chatNameDelete(){
-    	var userName = $("#userName").val();
-    	var sessionId = $("#sessionNId").val();
-    	console.log("chatNameDelete  userName: " + userName);
-    	console.log("chatNameDelete  sessionId: " + sessionId);
-    	if(userName == null || userName.trim() == "") {
-    		alert("사용자 이름을 입력해주세요.");
-    		$("#userName").focus();
-    	}else {
-    		wsDeleteUser(sessionId);
-    		window.close();
-    	}
-    }
-    	
+		var userName = $("#userName").val();
+		var sessionId = $("#sessionId").val();
+		console.log("chatNameDelete  userName: " + userName);
+		console.log("chatNameDelete  sessionId: " + sessionId);
+		if(userName == null || userName.trim() == ""){
+			alert("사용자 이름을 입력해주세요.");
+			$("#userName").focus();
+		}else{
+			wsDeleteUser(sessionId);
+			window.close();
+		}
+	}
+    
 	// User Delete  Message 전송 
 	function wsDeleteUser(sessionId) {
 		var option ={
 				type: "userDelete",
 				sessionId : sessionId
 			}
-			//자바스크립트의 값을 JSON 문자열로 변환
-			ws.send(JSON.stringify(option));	
+			// 자바스크립트의 값을 JSON 문자열로 변환
+			ws.send(JSON.stringify(option));
 	}
 	
 	// User 등록  Message 전송 
@@ -193,10 +194,10 @@
 				sessionId : $("#sessionId").val(),
 				userName : $("#userName").val()
 			}
-	   alert("sendUser Start..")
-	   // 자바스크립트의 값을 JSON 문자열로 변환
-	   ws.send(JSON.stringify(userOption)); //다시 서버로 보냄 
-	   // $('#chatting').val("");	
+		alert("sendUser Start..")
+		// 자바스크립트의 값을 JSON 문자열로 변환
+		ws.send(JSON.stringify(userOption));
+		// $('#chatting').val("");
 	}
 	
 	// 전체 Message 전송 
@@ -238,7 +239,7 @@
 				<tr>
 					<th>사용자명 삭제</th>
 					<th><input type="text" name="userName" id="userName"></th>
-					<th><button onclick="Delete()" id="startBtn">이름 삭제</button></th>
+					<th><button onclick="chatNameDelete()" id="startBtn">이름 삭제</button></th>
 				</tr>
 			</table>
 		</div>

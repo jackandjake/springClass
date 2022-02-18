@@ -6,14 +6,13 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class SocketController {
-	
+
 	@RequestMapping("/chat")
 	public ModelAndView chat() {
-		System.out.println("Socket Controller chat Start...");
-		ModelAndView mv= new ModelAndView();
+		System.out.println("SocketController chat Start...");
+		ModelAndView mv = new ModelAndView();
 		mv.setViewName("chat");
 		return mv;
 	}
-	
 
 }

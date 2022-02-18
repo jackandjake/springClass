@@ -30,9 +30,6 @@
 		  ]]>
     </select>
 
-
-
-
 	<select id="tkEmpSelOne" parameterType="int" resultType="Emp">
 		SELECT * FROM emp WHERE empno = #{empno}
 	</select>

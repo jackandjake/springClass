@@ -18,7 +18,7 @@ public interface EmpService {
 	List<Dept>	    deptSelect();
 	int             insert(Emp emp);
 	int             delete(int empno);
-	List<EmpDept>   listEmpDept();
+	List<EmpDept>   listEmpDept(); // 1
 	void            insertDept(DeptVO deptVO);
 	void            selListDept(HashMap<String, Object> map);
 	int             memCount(String id);

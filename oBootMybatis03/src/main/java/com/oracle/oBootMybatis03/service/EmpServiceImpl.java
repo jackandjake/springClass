@@ -50,7 +50,7 @@ public class EmpServiceImpl implements EmpService {
 		
 	}
 
-	@Override
+	@Override 
 	public int update(Emp emp) {
 		System.out.println("EmpServiceImple update ...");
 		int kkk = 0;
@@ -99,7 +99,7 @@ public class EmpServiceImpl implements EmpService {
 	}
 
 	@Override
-	public List<EmpDept> listEmpDept() {
+	public List<EmpDept> listEmpDept() {  // 1
 		List<EmpDept> empDeptList = null;
 		System.out.println("EmpServiceImple listEmpDept Start..");
 		empDeptList = ed.listEmpDept();
